@@ -1,9 +1,14 @@
 import { createContext } from 'react';
 import type { ReactNode } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import { useAuth, type AuthState } from '@/hooks/useAuth';
 
+import { signInWithEmail } from '@/services/auth.service';
+import { HttpStatus } from '@/config/constants.config';
+
 interface AuthContextType extends AuthState {
-  login: (email: string, password: string) => Promise<void>;
+  login: (email: string) => Promise<boolean>;
   logout: () => void;
 }
 
@@ -15,14 +20,35 @@ interface AuthProviderProps {
 
 export const AuthProvider = ({ children }: AuthProviderProps) => {
   const auth = useAuth();
+  const navigate = useNavigate();
 
-  const login = async (email: string, password: string): Promise<void> => {
-    console.log('Login attempt:', { email, password });
-    throw new Error('Login not implemented yet');
+  const login = async (email: string): Promise<boolean> => {
+    try {
+      const response = await signInWithEmail();
+
+      if (response.status === HttpStatus.OK) {
+        const users = response.data;
+        const user = users.find((user) => user.email === email);
+
+        if (!user) return false;
+
+        const token = user.guid;
+        auth.setAuth(user, token);
+
+        navigate('/studio', { replace: true });
+        return true;
+      }
+
+      return false;
+    } catch (error) {
+      console.error('Login error:', error);
+      return false;
+    }
   };
 
   const logout = (): void => {
-    console.log('Logout');
+    auth.clearAuth();
+    navigate('/auth/sign-in', { replace: true });
   };
 
   const value: AuthContextType = {

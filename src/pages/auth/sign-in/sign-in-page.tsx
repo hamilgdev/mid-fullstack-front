@@ -1,5 +1,7 @@
+import { SignInSection } from '@/components/sections/auth/sign-in/sign-in-section';
+
 const SignInPage = () => {
-  return <div>SignInPage</div>;
+  return <SignInSection />;
 };
 
 export default SignInPage;

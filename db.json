@@ -1,3 +1,16 @@
 {
-  "greeting": "Hello, World!"
+  "users": [
+    {
+      "guid": "usr_01JJF4CESQTVKSERF7Z1Z2J1WA",
+      "name": "John",
+      "last_name": "Doe",
+      "email": "john.doe@email.com"
+    },
+    {
+      "guid": "usr_02JJF4CESQTVKSERF7Z1Z2J1WB",
+      "name": "Jane",
+      "last_name": "Doe",
+      "email": "jane.doe@email.com"
+    }
+  ]
 }
