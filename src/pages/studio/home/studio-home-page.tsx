@@ -1,10 +1,7 @@
-import { useAuthContext } from '@/hooks/useAuthHook';
+import { StudioHomeSection } from '@/components/sections/studio/studio-home/studio-home-section';
 
 const StudioHomePage = () => {
-  const { user } = useAuthContext();
-  console.log({ user });
-
-  return <div>StudioHomePage</div>;
+  return <StudioHomeSection />;
 };
 
 export default StudioHomePage;
