@@ -12,5 +12,55 @@
       "last_name": "Doe",
       "email": "jane.doe@email.com"
     }
+  ],
+  "books": [
+    {
+      "guid": "bk_01JJF4CESQTVKSERF7Z1Z2J1WA",
+      "title": "Las aventuras de Juan",
+      "slug": "las-aventuras-de-juan",
+      "description": "Un libro fascinante sobre las aventuras de un joven llamado Juan.",
+      "author": "Juan Pérez",
+      "pages": [
+        {
+          "number": 1,
+          "chapter": "Introducción",
+          "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        },
+        {
+          "number": 2,
+          "chapter": "Chapítulo 1",
+          "content": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        },
+        {
+          "number": 3,
+          "chapter": "Chapítulo 2",
+          "content": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        }
+      ]
+    },
+    {
+      "guid": "bk_02JJF4CESQTVKSERF7Z1Z2J1WB",
+      "title": "El viaje de la imaginación",
+      "slug": "el-viaje-de-la-imaginacion",
+      "description": "Un viaje épico a través de mundos imaginarios y fantásticos.",
+      "author": "Harper Lee",
+      "pages": [
+        {
+          "number": 1,
+          "chapter": "Capítulo 1",
+          "content": "In hac habitasse platea dictumst. Aenean commodo ligula eget dolor."
+        },
+        {
+          "number": 2,
+          "chapter": "Capítulo 2",
+          "content": "Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
+        },
+        {
+          "number": 3,
+          "chapter": "Capítulo 3",
+          "content": "Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem."
+        }
+      ]
+    }
   ]
 }
