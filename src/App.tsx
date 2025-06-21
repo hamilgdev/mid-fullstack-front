@@ -1,13 +1,12 @@
-import { css } from 'styled-system/css';
+import { AuthProvider } from '@/hooks/useAuthContext';
+import { AppNavigation } from '@/components/ui/navigations/app-navigation/app-navigation';
 
-function App() {
+const App = () => {
   return (
-    <>
-      <h1 className={css({ fontSize: '9xl', fontWeight: 'bold' })}>
-        Hello 🐼!
-      </h1>
-    </>
+    <AuthProvider>
+      <AppNavigation />
+    </AuthProvider>
   );
-}
+};
 
 export default App;
