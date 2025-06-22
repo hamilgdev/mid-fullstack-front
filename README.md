@@ -4,6 +4,8 @@ Una aplicación web de lectura de libros desarrollada en React con funcionalidad
 
 Permite a los usuarios autenticarse, navegar por un catálogo de libros y leer contenido página por página, mientras registra métricas detalladas del tiempo de lectura. La aplicación utiliza una arquitectura moderna con React, TypeScript y una API simulada con json-server.
 
+![BookReader](/assets/og.png)
+
 ## ✨ Funcionalidades
 
 ### 🔐 Autenticación de Usuario
