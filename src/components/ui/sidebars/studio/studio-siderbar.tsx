@@ -16,7 +16,6 @@ export const StudioSiderbar = () => {
         backgroundColor: 'gray.50',
         borderRadius: 'md',
         boxShadow: 'xs',
-        maxWidth: '300px',
         width: '100%',
         height: '100%',
       })}
@@ -31,8 +30,21 @@ export const StudioSiderbar = () => {
           flexGrow: 1,
         })}
       >
-        <li className={css({ marginBottom: '2' })}>
-          <NavLink to='/studio'>
+        <li>
+          <NavLink
+            to='/studio'
+            className={css({
+              display: 'block',
+              marginBottom: '2',
+              backgroundColor: 'white',
+              borderRadius: 'lg',
+              boxShadow: 'xs',
+              padding: '2',
+              '&:hover': {
+                backgroundColor: 'gray.100',
+              },
+            })}
+          >
             {({ isActive }) => (
               <span
                 className={css({
@@ -41,7 +53,7 @@ export const StudioSiderbar = () => {
                   fontWeight: isActive ? 'bold' : 'normal',
                 })}
               >
-                Studio
+                Estudio
               </span>
             )}
           </NavLink>

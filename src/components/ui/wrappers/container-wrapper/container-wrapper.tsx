@@ -15,6 +15,7 @@ export const ContainerWrapper = ({
         maxWidth: '1280px',
         marginInline: 'auto',
         width: '100%',
+        height: '100%',
         ...sx,
       })}
     >
