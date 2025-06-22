@@ -1,11 +1,11 @@
 import { css } from 'styled-system/css';
-import { useAuthContext } from '@/hooks/useAuthContext';
+import { useAuthContext } from '@/hooks/use-auth-context';
 
 import { ContainerWrapper } from '@/components/ui/wrappers/container-wrapper/container-wrapper';
 import { SectionWrapper } from '@/components/ui/wrappers/section-wrapper/section-wrapper';
 
 import { BooksList } from '@/components/ui/lists/books/books-list';
-import { useBooks } from '@/hooks/useBooks';
+import { useBooks } from '@/hooks/use-books';
 import { useEffect } from 'react';
 
 export const StudioHomeSection = () => {

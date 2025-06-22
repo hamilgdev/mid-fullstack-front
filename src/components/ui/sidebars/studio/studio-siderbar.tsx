@@ -1,5 +1,5 @@
 import { Logo } from '@/components/ui/logo/logo';
-import { useAuthContext } from '@/hooks/useAuthContext';
+import { useAuthContext } from '@/hooks/use-auth-context';
 import { NavLink } from 'react-router-dom';
 import { css } from 'styled-system/css';
 
@@ -62,7 +62,7 @@ export const StudioSiderbar = () => {
           },
         })}
       >
-        logout
+        Cerrar sesión
       </button>
     </aside>
   );

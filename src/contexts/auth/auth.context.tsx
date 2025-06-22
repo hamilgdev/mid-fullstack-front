@@ -2,8 +2,8 @@ import { createContext } from 'react';
 import type { ReactNode } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { useAuth } from '@/hooks/useAuth';
-import type { AuthState } from '@/hooks/useAuth';
+import { useAuth } from '@/hooks/use-auth';
+import type { AuthState } from '@/hooks/use-auth';
 
 import { signInWithEmail } from '@/services/auth.service';
 import { HttpStatus } from '@/config/constants.config';

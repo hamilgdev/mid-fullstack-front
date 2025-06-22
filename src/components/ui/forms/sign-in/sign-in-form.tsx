@@ -1,6 +1,6 @@
 import { css } from 'styled-system/css';
 import { useForm, type SubmitHandler } from 'react-hook-form';
-import { useAuthContext } from '@/hooks/useAuthContext';
+import { useAuthContext } from '@/hooks/use-auth-context';
 
 type SignInInputs = {
   email: string;

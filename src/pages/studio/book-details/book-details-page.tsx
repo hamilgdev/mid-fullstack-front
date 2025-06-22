@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useParams, NavLink } from 'react-router-dom';
 
 import { BookDetailsSection } from '@/components/sections/studio/book-details/book-details-section';
-import { useBooks } from '@/hooks/useBooks';
+import { useBooks } from '@/hooks/use-books';
 import { css } from 'styled-system/css';
 
 const BookDetailsPage = () => {
