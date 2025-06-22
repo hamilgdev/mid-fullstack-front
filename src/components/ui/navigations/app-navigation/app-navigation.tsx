@@ -2,7 +2,7 @@ import { lazy, Suspense } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { Routes, Route, Navigate } from 'react-router-dom';
 
-import { AuthProvider } from '@/hooks/useAuthContext';
+import { AuthProvider } from '@/contexts/auth/auth.context';
 
 // Auth
 import SignInPage from '@/pages/auth/sign-in/sign-in-page';

@@ -17,13 +17,11 @@ export const BookDetailsSection = ({ book }: BookDetailsSectionProps) => {
     <SectionWrapper>
       <ContainerWrapper>
         <div className={vstack({ textAlign: 'center' })}>
-          <div className=''>
-            <NavLink to='/studio' className={css({ textDecoration: 'none' })}>
-              <span className={css({ color: 'blue.500', fontSize: 'lg' })}>
-                Volver a la biblioteca
-              </span>
-            </NavLink>
-          </div>
+          <NavLink to='/studio' className={css({ textDecoration: 'none' })}>
+            <span className={css({ color: 'blue.500', fontSize: 'lg' })}>
+              Volver a la biblioteca
+            </span>
+          </NavLink>
 
           <div
             className={css({

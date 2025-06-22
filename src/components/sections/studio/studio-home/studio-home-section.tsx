@@ -1,5 +1,5 @@
 import { css } from 'styled-system/css';
-import { useAuthContext } from '@/hooks/useAuthHook';
+import { useAuthContext } from '@/hooks/useAuthContext';
 
 import { ContainerWrapper } from '@/components/ui/wrappers/container-wrapper/container-wrapper';
 import { SectionWrapper } from '@/components/ui/wrappers/section-wrapper/section-wrapper';
