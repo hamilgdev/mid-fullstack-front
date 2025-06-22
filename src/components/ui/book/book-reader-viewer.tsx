@@ -1,21 +1,25 @@
 import { useEffect } from 'react';
 import type { Book } from '@/interfaces/book.interface';
-import { useStudioReader } from '@/hooks/useStudioReader';
 import { css } from 'styled-system/css';
 import { vstack, center } from 'styled-system/patterns';
+
+import { useStudioReaderContext } from '@/hooks/use-studio-reader-context';
+import { useReadingTimerContext } from '@/hooks/use-reading-timer-context';
 
 interface BookReaderViewerProps {
   book: Book;
 }
 
 export const BookReaderViewer = ({ book }: BookReaderViewerProps) => {
-  const { setBook, currentPage } = useStudioReader();
+  const { setBook, currentPage } = useStudioReaderContext();
+  const { registerPageChange } = useReadingTimerContext();
 
   useEffect(() => {
     if (book) {
       setBook(book);
+      registerPageChange(null, 0);
     }
-  }, [book, setBook]);
+  }, [book, setBook, registerPageChange]);
 
   if (!currentPage) {
     return (

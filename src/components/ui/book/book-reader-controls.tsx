@@ -1,7 +1,16 @@
-import { useStudioReader } from '@/hooks/useStudioReader';
+import { useStudioReaderContext } from '@/hooks/use-studio-reader-context';
 import { css } from 'styled-system/css';
+import { useReadingTimerContext } from '@/hooks/use-reading-timer-context';
+import { useEffect, useRef } from 'react';
 
 export const BookReaderControls = () => {
+  const {
+    registerPageChange,
+    finishTrackingReading,
+    resetReading,
+    initializeReading,
+  } = useReadingTimerContext();
+
   const {
     isFirstPage,
     isLastPage,
@@ -10,11 +19,38 @@ export const BookReaderControls = () => {
     finishReading,
     currentPageIndex,
     totalPages,
-  } = useStudioReader();
+  } = useStudioReaderContext();
+
+  const prevPageIndexRef = useRef<number | null>(null);
+  const isInitializedRef = useRef(false);
+
+  useEffect(() => {
+    if (!isInitializedRef.current) {
+      initializeReading(currentPageIndex);
+      isInitializedRef.current = true;
+      prevPageIndexRef.current = currentPageIndex;
+    }
+  }, [initializeReading, currentPageIndex]);
+
+  useEffect(() => {
+    if (
+      isInitializedRef.current &&
+      prevPageIndexRef.current !== currentPageIndex
+    ) {
+      registerPageChange(prevPageIndexRef.current, currentPageIndex);
+      prevPageIndexRef.current = currentPageIndex;
+    }
+  }, [registerPageChange, currentPageIndex]);
 
   const handleNext = () => {
     if (isLastPage) {
-      finishReading();
+      registerPageChange(currentPageIndex, null);
+
+      setTimeout(() => {
+        finishTrackingReading();
+        finishReading();
+        resetReading();
+      }, 100);
     } else {
       nextPage();
     }
