@@ -1,6 +1,8 @@
 import { createContext, useState, useCallback } from 'react';
 import type { ReactNode } from 'react';
+
 import type { Book, BookePage } from '@/interfaces/book.interface';
+import type { ReadingMetrics } from '@/interfaces/ui.interface';
 
 interface StudioReaderState {
   book: Book | null;
@@ -9,6 +11,8 @@ interface StudioReaderState {
   isFirstPage: boolean;
   isLastPage: boolean;
   totalPages: number;
+  isReadingFinished: boolean;
+  readingMetrics: ReadingMetrics | null;
 }
 
 interface StudioReaderContextType extends StudioReaderState {
@@ -16,7 +20,7 @@ interface StudioReaderContextType extends StudioReaderState {
   nextPage: () => void;
   previousPage: () => void;
   goToPage: (pageIndex: number) => void;
-  finishReading: () => void;
+  finishReading: (metrics: ReadingMetrics) => void;
   resetReader: () => void;
 }
 
@@ -33,6 +37,10 @@ export const StudioReaderProvider = ({
 }: StudioReaderProviderProps) => {
   const [book, setBookState] = useState<Book | null>(null);
   const [currentPageIndex, setCurrentPageIndex] = useState(0);
+  const [isReadingFinished, setIsReadingFinished] = useState(false);
+  const [readingMetrics, setReadingMetrics] = useState<ReadingMetrics | null>(
+    null
+  );
 
   const currentPage = book?.pages[currentPageIndex] || null;
   const totalPages = book?.pages.length || 0;
@@ -65,16 +73,17 @@ export const StudioReaderProvider = ({
     [totalPages]
   );
 
-  const finishReading = useCallback(() => {
-    // TODO: Implementar lógica para finalizar la lectura del libro
-    console.log('Lectura finalizada');
-    setBookState(null);
-    setCurrentPageIndex(0);
+  const finishReading = useCallback((metrics: ReadingMetrics) => {
+    setReadingMetrics(metrics);
+    setIsReadingFinished(true);
+    console.log('📊 Lectura finalizada con métricas:', metrics);
   }, []);
 
   const resetReader = useCallback(() => {
     setBookState(null);
     setCurrentPageIndex(0);
+    setIsReadingFinished(false);
+    setReadingMetrics(null);
   }, []);
 
   const value: StudioReaderContextType = {
@@ -84,6 +93,8 @@ export const StudioReaderProvider = ({
     isFirstPage,
     isLastPage,
     totalPages,
+    isReadingFinished,
+    readingMetrics,
     setBook,
     nextPage,
     previousPage,

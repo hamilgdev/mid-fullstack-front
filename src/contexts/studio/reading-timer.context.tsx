@@ -72,7 +72,7 @@ export const ReadingTimerProvider = ({
           [prevPageIndex]: (prev[prevPageIndex] || 0) + duration,
         }));
         console.log(
-          `⏱️ Page ${prevPageIndex} reading time: ${duration} seconds`
+          `⏱️ Página ${prevPageIndex} tiempo de lectura: ${duration} segundos`
         );
       }
       setCurrentPageIndex(newPageIndex);
@@ -100,7 +100,6 @@ export const ReadingTimerProvider = ({
       total: secondsTotal,
       perPage: finalSecondsByPage,
     };
-    console.log('📊 Reading finished. Metrics:', metrics);
     return metrics;
   }, [currentPageIndex, secondsTotal, stopTracking]);
 

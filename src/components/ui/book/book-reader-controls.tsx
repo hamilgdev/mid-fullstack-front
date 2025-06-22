@@ -47,8 +47,8 @@ export const BookReaderControls = () => {
       registerPageChange(currentPageIndex, null);
 
       setTimeout(() => {
-        finishTrackingReading();
-        finishReading();
+        const metrics = finishTrackingReading();
+        finishReading(metrics);
         resetReading();
       }, 100);
     } else {

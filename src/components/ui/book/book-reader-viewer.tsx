@@ -4,7 +4,6 @@ import { css } from 'styled-system/css';
 import { vstack, center } from 'styled-system/patterns';
 
 import { useStudioReaderContext } from '@/hooks/use-studio-reader-context';
-import { useReadingTimerContext } from '@/hooks/use-reading-timer-context';
 
 interface BookReaderViewerProps {
   book: Book;
@@ -12,14 +11,10 @@ interface BookReaderViewerProps {
 
 export const BookReaderViewer = ({ book }: BookReaderViewerProps) => {
   const { setBook, currentPage } = useStudioReaderContext();
-  const { registerPageChange } = useReadingTimerContext();
 
   useEffect(() => {
-    if (book) {
-      setBook(book);
-      registerPageChange(null, 0);
-    }
-  }, [book, setBook, registerPageChange]);
+    if (book) setBook(book);
+  }, [book, setBook]);
 
   if (!currentPage) {
     return (
