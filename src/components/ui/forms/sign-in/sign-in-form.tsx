@@ -69,10 +69,10 @@ export const SignInForm = () => {
           id='email'
           type='email'
           {...register('email', {
-            required: 'El email es requerido',
+            required: 'El Correo electrónico es requerido',
             pattern: {
               value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-              message: 'Email inválido',
+              message: 'Correo electrónico inválido',
             },
           })}
           className={css({
