@@ -24,27 +24,22 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   const navigate = useNavigate();
 
   const login = async (email: string): Promise<boolean> => {
-    try {
-      const response = await signInWithEmail();
+    const response = await signInWithEmail();
 
-      if (response.status === HttpStatus.OK) {
-        const users = response.data;
-        const user = users.find((user) => user.email === email);
+    if (response.status === HttpStatus.OK) {
+      const users = response.data;
+      const user = users.find((user) => user.email === email);
 
-        if (!user) return false;
+      if (!user) return false;
 
-        const token = user.guid;
-        auth.setAuth(user, token);
+      const token = user.guid;
+      auth.setAuth(user, token);
 
-        navigate('/studio', { replace: true });
-        return true;
-      }
-
-      return false;
-    } catch (error) {
-      console.error('Login error:', error);
-      return false;
+      navigate('/studio', { replace: true });
+      return true;
     }
+
+    return false;
   };
 
   const logout = (): void => {
